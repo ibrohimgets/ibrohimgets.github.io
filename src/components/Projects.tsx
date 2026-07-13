@@ -1,93 +1,102 @@
 import Image from "next/image";
 import { projects, type Project } from "@/data/portfolio";
-import { asset } from "@/lib/utils";
+import { asset, cn } from "@/lib/utils";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
-import { ArrowUpRight, Code, ExternalLink, GitHub } from "./icons";
+import { ArrowUpRight, FileText, GitHub } from "./icons";
 
-function ProjectArt({ project }: { project: Project }) {
-  // Real image if provided, otherwise a branded placeholder with the glyph.
-  if (project.image) {
-    return (
-      <Image
-        src={asset(project.image)}
-        alt={`${project.name} preview`}
-        width={800}
-        height={450}
-        className="h-full w-full object-cover"
-        sizes="(max-width: 1024px) 100vw, 33vw"
-      />
-    );
-  }
+function DetailBlock({ label, children }: { label: string; children: string }) {
   return (
-    <div className="relative flex h-full w-full items-center justify-center bg-gradient-to-br from-accent-soft via-surface to-surface">
-      <div aria-hidden className="absolute inset-0 bg-grid opacity-40" />
-      <span className="relative select-none text-5xl" aria-hidden>
-        {project.emoji ?? "🧩"}
-      </span>
+    <div>
+      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+        {label}
+      </p>
+      <p className="mt-1.5 text-sm leading-relaxed text-muted">{children}</p>
     </div>
   );
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const links = project.links ?? {};
-  return (
-    <Reveal as="article" delay={index * 80}>
-      <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-elevated shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-card-hover">
-        {/* Image / placeholder */}
-        <div className="relative aspect-[16/9] overflow-hidden border-b border-line">
-          <ProjectArt project={project} />
-        </div>
+  const flip = index % 2 === 1; // alternate image/content sides on desktop
+  const links = project.links;
 
-        <div className="flex flex-1 flex-col p-6">
-          <div className="flex items-start justify-between gap-3">
-            <h3 className="font-display text-lg font-semibold text-foreground">
+  return (
+    <Reveal as="article">
+      <div className="overflow-hidden rounded-3xl border border-line bg-elevated shadow-card transition-all duration-300 hover:border-accent/40 hover:shadow-card-hover">
+        <div className="grid lg:grid-cols-2">
+          {/* Figure */}
+          <div
+            className={cn(
+              "relative flex items-center justify-center border-b border-line bg-surface p-4 sm:p-6 lg:border-b-0",
+              flip ? "lg:order-2 lg:border-l" : "lg:border-r",
+            )}
+          >
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
+              <Image
+                src={asset(project.image)}
+                alt={`${project.name} — research figure`}
+                fill
+                className={cn(
+                  project.imageFit === "contain" ? "object-contain" : "object-cover",
+                )}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            {project.metric ? (
+              <span className="absolute left-6 top-6 inline-flex items-center rounded-full border border-accent/30 bg-background/90 px-3 py-1 text-xs font-semibold text-accent shadow-sm backdrop-blur sm:left-8 sm:top-8">
+                {project.metric}
+              </span>
+            ) : null}
+          </div>
+
+          {/* Content */}
+          <div className={cn("flex flex-col p-6 sm:p-8 lg:p-10", flip && "lg:order-1")}>
+            <h3 className="font-display text-2xl font-bold tracking-tight text-foreground">
               {project.name}
             </h3>
-            <ArrowUpRight className="h-5 w-5 shrink-0 text-muted transition-colors group-hover:text-accent" />
-          </div>
-          <p className="mt-1 text-sm font-medium text-accent">{project.tagline}</p>
-          <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
-            {project.description}
-          </p>
+            <p className="mt-1 text-sm font-semibold text-accent">{project.tagline}</p>
 
-          <ul className="mt-4 flex flex-wrap gap-2">
-            {project.technologies.map((tech) => (
-              <li key={tech} className="chip">
-                {tech}
-              </li>
-            ))}
-          </ul>
+            <div className="mt-5 space-y-4">
+              <DetailBlock label="Overview">{project.overview}</DetailBlock>
+              <DetailBlock label="Motivation">{project.motivation}</DetailBlock>
+              <DetailBlock label="Contribution">{project.contribution}</DetailBlock>
+            </div>
 
-          <div className="mt-5 flex flex-wrap gap-2">
-            {links.github ? (
-              <a
-                href={links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-2 text-xs font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
-              >
-                <GitHub className="h-4 w-4" /> GitHub
-              </a>
-            ) : null}
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {project.technologies.map((tech) => (
+                <li key={tech} className="chip">
+                  {tech}
+                </li>
+              ))}
+            </ul>
 
-            {links.demo ? (
-              <a
-                href={links.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-2 text-xs font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
-              >
-                <ExternalLink className="h-4 w-4" /> Demo
-              </a>
-            ) : (
-              <span
-                className="inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-dashed border-line px-3.5 py-2 text-xs font-medium text-muted/70"
-                title="Demo coming soon"
-              >
-                <Code className="h-4 w-4" /> Demo · soon
-              </span>
-            )}
+            <div className="mt-7 flex flex-wrap items-center gap-2">
+              {links.github ? (
+                <a
+                  href={links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-contrast shadow-sm transition-all hover:bg-accent-hover hover:shadow-md active:scale-[0.98]"
+                >
+                  <GitHub className="h-4 w-4" /> GitHub
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              ) : null}
+              {links.paper ? (
+                <a
+                  href={links.paper}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
+                >
+                  <FileText className="h-4 w-4" /> Paper
+                </a>
+              ) : links.paperLabel ? (
+                <span className="inline-flex items-center gap-2 rounded-full border border-dashed border-line px-4 py-2 text-sm font-medium text-muted">
+                  <FileText className="h-4 w-4" /> {links.paperLabel}
+                </span>
+              ) : null}
+            </div>
           </div>
         </div>
       </div>
@@ -99,12 +108,12 @@ export function Projects() {
   return (
     <Section
       id="projects"
-      eyebrow="Projects"
-      title="Research, shipped as systems"
-      description="From cognitively inspired grounding pipelines to embodied perception in simulation — the engineering behind the papers."
+      eyebrow="Research Projects"
+      title="From reasoning to grounding"
+      description="Four systems exploring how language reasoning makes visual perception more accurate, open-vocabulary, and human-aligned. Every figure below is from the project's own repository."
       tinted
     >
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="space-y-8">
         {projects.map((project, i) => (
           <ProjectCard key={project.name} project={project} index={i} />
         ))}

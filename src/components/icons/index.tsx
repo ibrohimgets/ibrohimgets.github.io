@@ -168,6 +168,51 @@ export function Sparkle(props: IconProps) {
   );
 }
 
+export function Eye(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" width="1em" height="1em" {...stroke} {...props}>
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
+
+export function Brain(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" width="1em" height="1em" {...stroke} {...props}>
+      <path d="M9 4.5a2.5 2.5 0 0 0-2.5 2.5A2.5 2.5 0 0 0 5 9.5 2.5 2.5 0 0 0 6.5 14v1a2.5 2.5 0 0 0 5 .5V5.5A2.5 2.5 0 0 0 9 4.5z" />
+      <path d="M15 4.5A2.5 2.5 0 0 1 17.5 7 2.5 2.5 0 0 1 19 9.5 2.5 2.5 0 0 1 17.5 14v1a2.5 2.5 0 0 1-5 .5V5.5A2.5 2.5 0 0 1 15 4.5z" />
+    </svg>
+  );
+}
+
+export function Crosshair(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" width="1em" height="1em" {...stroke} {...props}>
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="2.5" />
+      <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+    </svg>
+  );
+}
+
+export function Newspaper(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" width="1em" height="1em" {...stroke} {...props}>
+      <path d="M4 5a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v13a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2z" />
+      <path d="M17 8h2a1 1 0 0 1 1 1v9a2 2 0 0 1-2 2M8 8h5M8 12h5M8 16h5" />
+    </svg>
+  );
+}
+
+export function Expand(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" width="1em" height="1em" {...stroke} {...props}>
+      <path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3" />
+    </svg>
+  );
+}
+
 export function Award(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" width="1em" height="1em" {...stroke} {...props}>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { hero, researchGroups } from "@/data/portfolio";
+import { hero } from "@/data/portfolio";
 import { asset } from "@/lib/utils";
 import { Button } from "./Button";
 import { ArrowDown, Download, MapPin, Sparkle } from "./icons";
@@ -15,7 +15,7 @@ export function Hero() {
       />
 
       <div className="container-page relative">
-        <div className="grid items-center gap-12 pb-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8 lg:pb-28">
+        <div className="grid items-center gap-12 pb-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10 lg:pb-24">
           {/* Left: copy */}
           <div className="max-w-2xl animate-fade-up">
             <span className="chip gap-2 border-accent/30 bg-accent-soft text-accent">
@@ -23,16 +23,15 @@ export function Hero() {
               {hero.availability}
             </span>
 
-            <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              {hero.name}
+            <h1 className="mt-6 font-display text-4xl font-bold leading-[1.06] tracking-tight text-foreground sm:text-5xl lg:text-[3.4rem]">
+              Building AI Systems That{" "}
+              <span className="text-accent">See</span>,{" "}
+              <span className="text-accent">Think</span>, and{" "}
+              <span className="text-accent">Reason</span>
             </h1>
 
-            <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xl font-medium text-accent sm:text-2xl">
-              {hero.title}
-            </p>
-
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-              {hero.summary}
+              {hero.subtitle}
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -41,16 +40,19 @@ export function Hero() {
                 View CV
               </Button>
               <Button href="#publications" variant="secondary">
-                View Research
+                Publications
+              </Button>
+              <Button href="#projects" variant="secondary">
+                Projects
               </Button>
               <Button href="#contact" variant="ghost">
-                Contact Me
+                Contact
               </Button>
             </div>
 
             <p className="mt-8 flex items-center gap-2 text-sm text-muted">
               <MapPin className="h-4 w-4 text-accent" />
-              Yongsan-gu, Seoul, South Korea
+              {hero.name} · Yongsan-gu, Seoul, South Korea
             </p>
           </div>
 
@@ -73,13 +75,13 @@ export function Hero() {
                 />
               </div>
 
-              {/* Floating research badge */}
+              {/* Floating title badge */}
               <div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-line bg-elevated/95 p-4 shadow-card backdrop-blur sm:block">
                 <p className="text-xs font-semibold uppercase tracking-wider text-accent">
-                  Research focus
+                  {hero.title}
                 </p>
                 <p className="mt-1 text-sm font-medium text-foreground">
-                  {researchGroups[0].topics.join(" · ")}
+                  M.S. in AI · Dongguk University
                 </p>
               </div>
             </div>
@@ -88,13 +90,13 @@ export function Hero() {
 
         {/* Scroll hint */}
         <a
-          href="#about"
+          href="#pipeline"
           className="group mb-10 hidden items-center gap-2 text-sm text-muted transition-colors hover:text-accent lg:inline-flex"
         >
           <span className="flex h-9 w-9 items-center justify-center rounded-full border border-line group-hover:border-accent">
             <ArrowDown className="h-4 w-4 animate-float" />
           </span>
-          Scroll to explore
+          Explore the research
         </a>
       </div>
     </section>
