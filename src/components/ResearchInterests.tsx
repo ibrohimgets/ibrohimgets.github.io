@@ -9,32 +9,20 @@ export function ResearchInterests() {
       eyebrow="Research Interests"
       title="Where language meets vision"
       description="The topics I keep coming back to. They all sit somewhere between language and vision."
-      tinted
     >
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-x-16 gap-y-10 sm:grid-cols-2">
         {researchGroups.map((group, i) => (
-          <Reveal as="article" key={group.title} delay={i * 70}>
-            <div className="group h-full rounded-2xl border border-line bg-elevated p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-card-hover sm:p-7">
-              <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent-soft font-display text-sm font-bold text-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-display text-lg font-semibold text-foreground">
-                  {group.title}
-                </h3>
-              </div>
-
-              <p className="mt-4 text-sm leading-relaxed text-muted">
+          <Reveal as="article" key={group.title} delay={i * 60}>
+            <div className="border-t-2 border-foreground/80 pt-5">
+              <h3 className="font-display text-xl font-medium text-foreground">
+                {group.title}
+              </h3>
+              <p className="mt-2.5 text-sm leading-relaxed text-muted">
                 {group.description}
               </p>
-
-              <ul className="mt-5 flex flex-wrap gap-2">
-                {group.topics.map((topic) => (
-                  <li key={topic} className="chip">
-                    {topic}
-                  </li>
-                ))}
-              </ul>
+              <p className="mt-3.5 text-sm font-medium text-foreground/80">
+                {group.topics.join("  ·  ")}
+              </p>
             </div>
           </Reveal>
         ))}

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { navItems, hero } from "@/data/portfolio";
 import { asset, cn } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
-import { Close, Download, Menu } from "./icons";
+import { Close, Menu } from "./icons";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -51,7 +51,7 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled || open
-          ? "border-b border-line bg-background/80 backdrop-blur-md"
+          ? "border-b border-line bg-background/90 backdrop-blur-md"
           : "border-b border-transparent bg-transparent",
       )}
     >
@@ -59,25 +59,20 @@ export function Navbar() {
         {/* Brand */}
         <a
           href="#top"
-          className="group flex items-center gap-2.5 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          className="font-display text-lg font-medium tracking-tight text-foreground transition-colors hover:text-accent"
           aria-label="Back to top"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent font-display text-sm font-bold text-accent-contrast">
-            IM
-          </span>
-          <span className="hidden font-display text-sm font-semibold tracking-tight text-foreground sm:block">
-            Ibrohimjon Muminov
-          </span>
+          Ibrohimjon Muminov
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
                 className={cn(
-                  "rounded-full px-3.5 py-2 text-sm font-medium transition-colors",
+                  "text-[0.82rem] font-medium tracking-wide transition-colors",
                   active === item.href
                     ? "text-accent"
                     : "text-muted hover:text-foreground",
@@ -90,15 +85,14 @@ export function Navbar() {
         </ul>
 
         {/* Right actions */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <ThemeToggle />
           <a
             href={asset(hero.cv)}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-contrast shadow-sm transition-all hover:bg-accent-hover hover:shadow-md active:scale-[0.98] sm:inline-flex"
+            className="hidden items-center rounded-full border border-line px-4 py-1.5 text-[0.82rem] font-medium text-foreground transition-colors hover:border-accent hover:text-accent sm:inline-flex"
           >
-            <Download className="h-4 w-4" />
             CV
           </a>
           <button
@@ -106,7 +100,7 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line bg-elevated text-foreground lg:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line text-foreground lg:hidden"
           >
             {open ? <Close className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -120,32 +114,31 @@ export function Navbar() {
           open ? "max-h-[26rem]" : "max-h-0 border-t-transparent",
         )}
       >
-        <ul className="container-page flex flex-col gap-1 py-4">
+        <ul className="container-page flex flex-col py-4">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "block rounded-xl px-4 py-3 text-base font-medium transition-colors",
+                  "block border-b border-line py-3.5 text-base transition-colors last:border-b-0",
                   active === item.href
-                    ? "bg-surface text-accent"
-                    : "text-muted hover:bg-surface hover:text-foreground",
+                    ? "text-accent"
+                    : "text-foreground hover:text-accent",
                 )}
               >
                 {item.label}
               </a>
             </li>
           ))}
-          <li className="mt-2">
+          <li className="pt-4">
             <a
               href={asset(hero.cv)}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="flex items-center justify-center gap-2 rounded-xl bg-accent px-4 py-3 text-base font-medium text-accent-contrast"
+              className="inline-flex items-center rounded-full border border-line px-5 py-2 text-sm font-medium text-foreground"
             >
-              <Download className="h-4 w-4" />
               Download CV
             </a>
           </li>

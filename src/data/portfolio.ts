@@ -437,6 +437,36 @@ export const timeline: TimelineItem[] = [
 ];
 
 /* ----------------------------------------------------------------------------
+ * Conferences & community — photos from events I've attended
+ * ------------------------------------------------------------------------- */
+
+export type EventPhoto = {
+  image: string;
+  event: string;
+  caption: string;
+};
+
+export const events: EventPhoto[] = [
+  {
+    image: "/events/ask2025-presenting.jpg",
+    event: "ASK 2025 · Kyungpook National University, Daegu",
+    caption:
+      "Presenting our accepted paper at ASK 2025, the Annual Symposium of KIPS.",
+  },
+  {
+    image: "/events/itrc-fair-2025.jpg",
+    event: "ITRC Talent Development Fair 2025 · Seoul",
+    caption:
+      "With the ITRC research community at the 2025 ITRC Talent Development Fair (인재양성대전), hosted by the Ministry of Science and ICT.",
+  },
+  {
+    image: "/events/ask2025-group.jpg",
+    event: "ASK 2025 · Symposium session",
+    caption: "With fellow researchers and session chairs at ASK 2025.",
+  },
+];
+
+/* ----------------------------------------------------------------------------
  * Research gallery — real figures from the project repositories
  * ------------------------------------------------------------------------- */
 

@@ -1,101 +1,83 @@
 import Image from "next/image";
 import { hero } from "@/data/portfolio";
 import { asset } from "@/lib/utils";
-import { Button } from "./Button";
-import { ArrowDown, Download, MapPin, Sparkle } from "./icons";
+import { ArrowDown, Download } from "./icons";
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-28 sm:pt-32 lg:pt-36">
-      {/* Decorative grid + accent glow */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid" />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 right-[-10%] h-[26rem] w-[26rem] rounded-full bg-accent/10 blur-3xl"
-      />
-
-      <div className="container-page relative">
-        <div className="grid items-center gap-12 pb-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10 lg:pb-24">
+    <section id="top" className="pt-32 sm:pt-36 lg:pt-40">
+      <div className="container-page">
+        <div className="grid items-start gap-12 pb-16 sm:pb-20 lg:grid-cols-[1.25fr_0.75fr] lg:gap-16">
           {/* Left: copy */}
           <div className="max-w-2xl animate-fade-up">
-            <span className="chip gap-2 border-accent/30 bg-accent-soft text-accent">
-              <Sparkle className="h-3.5 w-3.5" />
-              {hero.availability}
-            </span>
+            <p className="eyebrow">{hero.availability}</p>
 
-            <h1 className="mt-6 font-display text-4xl font-bold leading-[1.06] tracking-tight text-foreground sm:text-5xl lg:text-[3.4rem]">
-              Building AI Systems That{" "}
-              <span className="text-accent">See</span>,{" "}
-              <span className="text-accent">Think</span>, and{" "}
-              <span className="text-accent">Reason</span>
+            <h1 className="mt-6 font-display text-[2.6rem] font-medium leading-[1.12] tracking-tight text-foreground sm:text-5xl lg:text-[3.5rem]">
+              Building AI Systems That <em className="text-accent">See</em>,{" "}
+              <em className="text-accent">Think</em>, and{" "}
+              <em className="text-accent">Reason</em>
             </h1>
 
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+            <p className="mt-7 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
               {hero.subtitle}
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button href={asset(hero.cv)} external>
+            <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
+              <a
+                href={asset(hero.cv)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-85"
+              >
                 <Download className="h-4 w-4" />
                 View CV
-              </Button>
-              <Button href="#publications" variant="secondary">
+              </a>
+              <a href="#publications" className="link-quiet text-sm font-medium">
                 Publications
-              </Button>
-              <Button href="#projects" variant="secondary">
+              </a>
+              <a href="#projects" className="link-quiet text-sm font-medium">
                 Projects
-              </Button>
-              <Button href="#contact" variant="ghost">
+              </a>
+              <a href="#contact" className="link-quiet text-sm font-medium">
                 Contact
-              </Button>
+              </a>
             </div>
 
-            <p className="mt-8 flex items-center gap-2 text-sm text-muted">
-              <MapPin className="h-4 w-4 text-accent" />
+            <p className="mt-10 text-sm text-muted">
               {hero.name} · Yongsan-gu, Seoul, South Korea
             </p>
           </div>
 
-          {/* Right: portrait */}
-          <div className="relative mx-auto w-full max-w-sm animate-fade-in lg:mx-0">
-            <div className="relative">
-              <div
-                aria-hidden
-                className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-accent/25 via-accent/5 to-transparent"
+          {/* Right: portrait as an editorial figure */}
+          <figure className="mx-auto w-full max-w-[17rem] animate-fade-in sm:max-w-[19rem] lg:mx-0 lg:justify-self-end">
+            <div className="figure-well">
+              <Image
+                src={asset(hero.photo)}
+                alt="Portrait of Ibrohimjon Muminov"
+                width={418}
+                height={616}
+                priority
+                className="h-auto w-full object-cover"
+                sizes="(max-width: 1024px) 19rem, 19rem"
               />
-              <div className="relative overflow-hidden rounded-[1.75rem] border border-line bg-surface shadow-card">
-                <Image
-                  src={asset(hero.photo)}
-                  alt="Portrait of Ibrohimjon Muminov"
-                  width={600}
-                  height={800}
-                  priority
-                  className="h-full w-full object-cover"
-                  sizes="(max-width: 1024px) 24rem, 22rem"
-                />
-              </div>
-
-              {/* Floating title badge */}
-              <div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-line bg-elevated/95 p-4 shadow-card backdrop-blur sm:block">
-                <p className="text-xs font-semibold uppercase tracking-wider text-accent">
-                  {hero.title}
-                </p>
-                <p className="mt-1 text-sm font-medium text-foreground">
-                  M.S. in AI · Dongguk University
-                </p>
-              </div>
             </div>
-          </div>
+            <figcaption className="mt-3 border-l-2 border-accent/60 pl-3">
+              <span className="block text-sm font-medium text-foreground">
+                {hero.title}
+              </span>
+              <span className="mt-0.5 block text-sm italic text-muted">
+                M.S. in AI · Dongguk University
+              </span>
+            </figcaption>
+          </figure>
         </div>
 
         {/* Scroll hint */}
         <a
           href="#pipeline"
-          className="group mb-10 hidden items-center gap-2 text-sm text-muted transition-colors hover:text-accent lg:inline-flex"
+          className="group hidden items-center gap-2 pb-4 text-sm text-muted transition-colors hover:text-accent lg:inline-flex"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-line group-hover:border-accent">
-            <ArrowDown className="h-4 w-4 animate-float" />
-          </span>
+          <ArrowDown className="h-4 w-4" />
           Explore the research
         </a>
       </div>

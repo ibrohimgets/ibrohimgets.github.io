@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Newsreader } from "next/font/google";
 import { site, contact, hero } from "@/data/portfolio";
 import "./globals.css";
 
@@ -9,10 +9,11 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
-const spaceGrotesk = Space_Grotesk({
+// Editorial serif for headings and display text — reads academic, not app-like.
+const newsreader = Newsreader({
   subsets: ["latin"],
   display: "swap",
-  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-display",
 });
 
@@ -122,7 +123,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script

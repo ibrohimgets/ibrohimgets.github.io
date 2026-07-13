@@ -3,35 +3,36 @@
 @tailwind utilities;
 
 /* ---------------------------------------------------------------------------
- * Design tokens — a warm white / dark-gray / orange research palette.
- * Values are space-separated RGB channels so Tailwind's <alpha-value> works.
+ * Design tokens — ink-on-paper editorial palette with a restrained orange
+ * accent. Values are space-separated RGB channels so Tailwind's
+ * <alpha-value> works.
  * ------------------------------------------------------------------------ */
 :root {
   --bg: 255 255 255;
-  --surface: 250 250 249; /* stone-50  — section + card fills */
-  --elevated: 255 255 255; /* raised cards on tinted sections */
-  --border: 231 229 228; /* stone-200 */
-  --fg: 28 25 23; /* stone-900 */
-  --muted: 87 83 78; /* stone-600 */
+  --surface: 250 249 247; /* warm paper tint for figure wells */
+  --elevated: 255 255 255;
+  --border: 229 226 221; /* hairline */
+  --fg: 28 26 23; /* ink */
+  --muted: 104 99 92; /* warm gray */
 
-  --accent: 234 88 12; /* orange-600 — accessible on white */
-  --accent-hover: 194 65 12; /* orange-700 */
-  --accent-soft: 255 237 213; /* orange-100 */
-  --accent-contrast: 255 255 255; /* text on the accent fill */
+  --accent: 180 66 16; /* burnt orange — used sparingly */
+  --accent-hover: 146 51 10;
+  --accent-soft: 250 240 232;
+  --accent-contrast: 255 255 255;
 }
 
 .dark {
-  --bg: 12 10 9; /* stone-950 */
-  --surface: 23 21 20; /* between bg and border */
-  --elevated: 28 25 23; /* stone-900 */
-  --border: 41 37 36; /* stone-800 */
-  --fg: 250 250 249; /* stone-50 */
-  --muted: 168 162 158; /* stone-400 */
+  --bg: 22 20 18; /* warm near-black */
+  --surface: 29 27 24;
+  --elevated: 34 31 28;
+  --border: 55 51 46;
+  --fg: 236 233 228;
+  --muted: 158 151 142;
 
-  --accent: 251 146 60; /* orange-400 — brighter on dark */
-  --accent-hover: 253 186 116; /* orange-300 */
-  --accent-soft: 67 43 20; /* deep orange tint */
-  --accent-contrast: 23 21 20;
+  --accent: 244 152 82;
+  --accent-hover: 250 179 122;
+  --accent-soft: 56 41 29;
+  --accent-contrast: 26 22 18;
 }
 
 @layer base {
@@ -54,29 +55,40 @@
   }
 
   ::selection {
-    background-color: rgb(var(--accent) / 0.24);
+    background-color: rgb(var(--accent) / 0.18);
     color: rgb(var(--fg));
   }
 
   :focus-visible {
     outline: 2px solid rgb(var(--accent));
     outline-offset: 2px;
-    border-radius: 4px;
+    border-radius: 2px;
   }
 }
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-content px-5 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-5xl px-5 sm:px-8;
   }
 
-  /* A subtle chip used for topics / technologies / metadata. */
-  .chip {
-    @apply inline-flex items-center rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-muted;
+  /* Small-caps section label */
+  .eyebrow {
+    @apply text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-muted;
   }
 
-  .link-underline {
-    @apply relative text-foreground transition-colors hover:text-accent;
+  /* Quiet text link with a fine underline */
+  .link-quiet {
+    @apply text-foreground underline decoration-line decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent;
+  }
+
+  /* Small inline meta link, e.g. [Paper] [Code] */
+  .link-meta {
+    @apply text-sm font-medium text-accent underline decoration-accent/30 decoration-1 underline-offset-4 transition-colors hover:decoration-accent;
+  }
+
+  /* Editorial figure well */
+  .figure-well {
+    @apply overflow-hidden rounded-md border border-line bg-surface;
   }
 }
 
@@ -90,57 +102,4 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* Flowing dash along the See-Think-Detect connectors. */
-@keyframes flow-x {
-  to {
-    background-position: 24px 0;
-  }
-}
-@keyframes flow-y {
-  to {
-    background-position: 0 24px;
-  }
-}
-.flow-x {
-  background-image: linear-gradient(
-    90deg,
-    rgb(var(--accent) / 0.9) 45%,
-    transparent 45%
-  );
-  background-size: 24px 2px;
-  background-repeat: repeat-x;
-  animation: flow-x 0.9s linear infinite;
-}
-.flow-y {
-  background-image: linear-gradient(
-    180deg,
-    rgb(var(--accent) / 0.9) 45%,
-    transparent 45%
-  );
-  background-size: 2px 24px;
-  background-repeat: repeat-y;
-  animation: flow-y 0.9s linear infinite;
-}
-
-/* Grid background used behind the hero. */
-.bg-grid {
-  background-image: linear-gradient(
-      to right,
-      rgb(var(--border) / 0.6) 1px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, rgb(var(--border) / 0.6) 1px, transparent 1px);
-  background-size: 56px 56px;
-  -webkit-mask-image: radial-gradient(
-    ellipse 70% 60% at 50% 0%,
-    #000 40%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    ellipse 70% 60% at 50% 0%,
-    #000 40%,
-    transparent 100%
-  );
 }

@@ -5,24 +5,23 @@ import { Reveal } from "./Reveal";
 export function About() {
   return (
     <Section id="about" eyebrow="About" title="A little about me">
-
-      <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
+      <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
         <div className="space-y-5">
           {about.paragraphs.map((p, i) => (
             <Reveal key={i} delay={i * 60}>
-              <p className="text-base leading-relaxed text-muted sm:text-lg">{p}</p>
+              <p className="text-base leading-[1.75] text-muted sm:text-[1.05rem]">
+                {p}
+              </p>
             </Reveal>
           ))}
         </div>
 
         <Reveal delay={80}>
-          <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-1">
+          <dl className="space-y-5 border-l border-line pl-6 lg:mt-1">
             {about.highlights.map((item) => (
-              <div key={item.label} className="bg-background p-5">
-                <dt className="text-xs font-semibold uppercase tracking-wider text-accent">
-                  {item.label}
-                </dt>
-                <dd className="mt-1.5 text-base font-medium text-foreground">
+              <div key={item.label}>
+                <dt className="eyebrow">{item.label}</dt>
+                <dd className="mt-1 font-display text-lg text-foreground">
                   {item.value}
                 </dd>
               </div>
