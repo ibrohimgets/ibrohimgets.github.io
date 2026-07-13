@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+ * Design tokens — a warm white / dark-gray / orange research palette.
+ * Values are space-separated RGB channels so Tailwind's <alpha-value> works.
+ * ------------------------------------------------------------------------ */
+:root {
+  --bg: 255 255 255;
+  --surface: 250 250 249; /* stone-50  — section + card fills */
+  --elevated: 255 255 255; /* raised cards on tinted sections */
+  --border: 231 229 228; /* stone-200 */
+  --fg: 28 25 23; /* stone-900 */
+  --muted: 87 83 78; /* stone-600 */
+
+  --accent: 234 88 12; /* orange-600 — accessible on white */
+  --accent-hover: 194 65 12; /* orange-700 */
+  --accent-soft: 255 237 213; /* orange-100 */
+  --accent-contrast: 255 255 255; /* text on the accent fill */
+}
+
+.dark {
+  --bg: 12 10 9; /* stone-950 */
+  --surface: 23 21 20; /* between bg and border */
+  --elevated: 28 25 23; /* stone-900 */
+  --border: 41 37 36; /* stone-800 */
+  --fg: 250 250 249; /* stone-50 */
+  --muted: 168 162 158; /* stone-400 */
+
+  --accent: 251 146 60; /* orange-400 — brighter on dark */
+  --accent-hover: 253 186 116; /* orange-300 */
+  --accent-soft: 67 43 20; /* deep orange tint */
+  --accent-contrast: 23 21 20;
+}
+
+@layer base {
+  * {
+    border-color: rgb(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* keeps anchors clear of the sticky navbar */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--fg));
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: rgb(var(--accent) / 0.24);
+    color: rgb(var(--fg));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-content px-5 sm:px-6 lg:px-8;
+  }
+
+  /* A subtle chip used for topics / technologies / metadata. */
+  .chip {
+    @apply inline-flex items-center rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-muted;
+  }
+
+  .link-underline {
+    @apply relative text-foreground transition-colors hover:text-accent;
+  }
+}
+
+/* Respect users who prefer reduced motion — disable non-essential animation. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Grid background used behind the hero. */
+.bg-grid {
+  background-image: linear-gradient(
+      to right,
+      rgb(var(--border) / 0.6) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgb(var(--border) / 0.6) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 60% at 50% 0%,
+    #000 40%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 70% 60% at 50% 0%,
+    #000 40%,
+    transparent 100%
+  );
+}
