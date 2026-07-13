@@ -8,8 +8,8 @@ export function Skills() {
     <Section
       id="skills"
       eyebrow="Skills"
-      title="Tools of the trade"
-      description="The stack I use to take multimodal research from idea to trained, evaluated, and deployed system."
+      title="Tools I work with"
+      description="The tools I reach for most, from a first experiment to trained and evaluated models."
     >
       <div className="grid gap-6 md:grid-cols-3">
         {skillGroups.map((group, i) => (

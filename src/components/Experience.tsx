@@ -8,7 +8,7 @@ export function Experience() {
     <Section
       id="experience"
       eyebrow="Experience"
-      title="Research & engineering track record"
+      title="Where I've worked"
     >
       <ol className="relative space-y-8 border-l border-line pl-6 sm:pl-8">
         {experience.map((item, i) => (

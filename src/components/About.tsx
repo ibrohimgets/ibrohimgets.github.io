@@ -4,11 +4,8 @@ import { Reveal } from "./Reveal";
 
 export function About() {
   return (
-    <Section
-      id="about"
-      eyebrow="About"
-      title="Teaching machines to reason about what they see"
-    >
+    <Section id="about" eyebrow="About" title="A little about me">
+
       <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
         <div className="space-y-5">
           {about.paragraphs.map((p, i) => (

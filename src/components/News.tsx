@@ -42,7 +42,7 @@ export function News() {
       id="news"
       eyebrow="News"
       title="Recent updates"
-      description="Papers, patents, and milestones from the lab."
+      description="A running log of papers, patents, and project milestones."
     >
       <Reveal>
         <div className="rounded-2xl border border-line bg-elevated px-6 shadow-card sm:px-8">

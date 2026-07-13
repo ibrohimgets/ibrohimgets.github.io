@@ -31,9 +31,9 @@ export function Pipeline() {
   return (
     <Section
       id="pipeline"
-      eyebrow="Research Philosophy"
+      eyebrow="Approach"
       title="See · Think · Detect"
-      description="My work follows one idea: perception alone isn't understanding. A system should see the scene, reason about intent with language, and only then detect — so grounding becomes a decision, not a guess."
+      description="Most of my work comes back to one idea: seeing isn't the same as understanding. A model should look at the scene, use language to figure out what's actually being asked, and only then localize the object."
     >
       <div className="flex flex-col items-stretch gap-2 lg:flex-row lg:items-center">
         {pipeline.map((step, i) => {

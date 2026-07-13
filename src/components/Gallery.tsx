@@ -40,9 +40,9 @@ export function Gallery() {
   return (
     <Section
       id="gallery"
-      eyebrow="Research Gallery"
+      eyebrow="Gallery"
       title="Figures from the work"
-      description="Pipeline diagrams, model architectures, grounding outputs, and attention maps — pulled directly from the project repositories. Click any figure to expand."
+      description="Architecture diagrams, grounding outputs, and attention maps taken from the project repositories. Click a figure to view it full size."
     >
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {gallery.map((item, i) => (

@@ -94,8 +94,8 @@ export function Publications() {
     <Section
       id="publications"
       eyebrow="Publications & Patents"
-      title="Peer-reviewed research & IP"
-      description="Multimodal frameworks that let AI resolve natural, commonsense, and referring requests into precise visual decisions."
+      title="Publications & patents"
+      description="Peer-reviewed papers on visual grounding and open-world detection, plus a patent that came out of the work."
     >
       <div className="grid gap-6 lg:grid-cols-3">
         {publications.map((pub, i) => (

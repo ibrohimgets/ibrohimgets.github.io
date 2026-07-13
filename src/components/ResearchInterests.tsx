@@ -8,7 +8,7 @@ export function ResearchInterests() {
       id="research"
       eyebrow="Research Interests"
       title="Where language meets vision"
-      description="My research spans four connected threads — from fusing perception with language to building visual systems that people can talk to."
+      description="The topics I keep coming back to. They all sit somewhere between language and vision."
       tinted
     >
       <div className="grid gap-6 sm:grid-cols-2">

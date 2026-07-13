@@ -108,9 +108,9 @@ export function Projects() {
   return (
     <Section
       id="projects"
-      eyebrow="Research Projects"
-      title="From reasoning to grounding"
-      description="Four systems exploring how language reasoning makes visual perception more accurate, open-vocabulary, and human-aligned. Every figure below is from the project's own repository."
+      eyebrow="Projects"
+      title="What I've been building"
+      description="A few systems built around one question: can language reasoning make detection and grounding more reliable? Every figure below comes straight from the project's own repository."
       tinted
     >
       <div className="space-y-8">

@@ -138,27 +138,14 @@ export const hero = {
 };
 
 /* ----------------------------------------------------------------------------
- * Research highlights (stats strip near the top)
- * ------------------------------------------------------------------------- */
-
-export type Stat = { value: string; label: string; sub?: string };
-
-export const stats: Stat[] = [
-  { value: "3", label: "Peer-reviewed papers", sub: "ACCV · AIComPS · KIPS" },
-  { value: "1", label: "Patent filed", sub: "KIPO · 2025" },
-  { value: "86.0%", label: "RefCOCOg-UMD test", sub: "See-Think-Detect · Acc@0.5" },
-  { value: "4", label: "Open research projects", sub: "grounding · detection" },
-];
-
-/* ----------------------------------------------------------------------------
  * About
  * ------------------------------------------------------------------------- */
 
 export const about = {
   paragraphs: [
-    "I am a Multimodal AI Engineer and researcher pursuing my M.S. in Artificial Intelligence at Dongguk University, advised by Prof. Jihie Kim. My research sits at the intersection of language and vision: I build systems that pair the reasoning ability of large language models with the perceptual grounding of computer vision.",
-    "The goal of my work is to move beyond models that merely detect pixels toward models that understand intent — resolving natural, commonsense, and referring requests into precise visual decisions. This is the foundation for AI that collaborates with people through language rather than rigid commands.",
-    "I design multimodal reasoning datasets, train and evaluate deep models in PyTorch, and translate research into working systems — from LLM-guided visual grounding frameworks to robotics and simulation pipelines.",
+    "I'm an M.S. student in Artificial Intelligence at Dongguk University, advised by Prof. Jihie Kim. I work on multimodal AI, getting large language models and computer vision to cooperate so a system can reason about what it's looking at instead of just labeling it.",
+    "Most detectors map pixels to a fixed set of labels. I'm more interested in models that can take an everyday request, work out what a person actually means, and turn that into the right detection, even when the object was never a training label.",
+    "Day to day that means building datasets, training and evaluating models in PyTorch, and turning the research into things that actually run, from grounding frameworks to robotics and simulation.",
   ],
   highlights: [
     { label: "Current", value: "M.S. in Artificial Intelligence" },
@@ -194,7 +181,7 @@ export const researchGroups: ResearchGroup[] = [
   {
     title: "Human-Centered AI",
     description:
-      "Designing intelligent visual systems that interact naturally and helpfully with people.",
+      "Building visual systems that people can actually talk to, using everyday language.",
     topics: ["Human–Machine Interaction", "Intelligent Visual Systems"],
   },
 ];
@@ -469,7 +456,7 @@ export const gallery: GalleryItem[] = [
   },
   {
     image: "/research/std-horse.jpg",
-    caption: "Spatial grounding — numbered candidates (left) → prediction 🟩 vs ground truth 🟦.",
+    caption: "Spatial grounding: numbered candidates on the left, the model's prediction (green) against ground truth (blue) on the right.",
     tag: "Grounding",
   },
   {

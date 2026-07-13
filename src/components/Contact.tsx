@@ -7,7 +7,6 @@ import {
   ArrowUpRight,
   Download,
   GitHub,
-  Globe,
   LinkedIn,
   Mail,
   MapPin,
@@ -37,13 +36,6 @@ const channels = [
     external: true,
   },
   {
-    label: "Website",
-    value: contact.website.replace("https://", ""),
-    href: contact.website,
-    Icon: Globe,
-    external: true,
-  },
-  {
     label: "Phone",
     value: contact.phone,
     href: `tel:${contact.phone.replace(/\s/g, "")}`,
@@ -64,8 +56,8 @@ export function Contact() {
     <Section
       id="contact"
       eyebrow="Contact"
-      title="Let's build systems that see and reason"
-      description="I'm open to research collaborations, Ph.D. opportunities, and AI/ML engineering roles. The fastest way to reach me is email."
+      title="Get in touch"
+      description="I'm open to research collaborations, PhD opportunities, and ML engineering roles. Email is the best way to reach me."
       tinted
     >
       <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
@@ -74,11 +66,11 @@ export function Contact() {
           <div className="flex h-full flex-col justify-between rounded-2xl border border-line bg-elevated p-8 shadow-card">
             <div>
               <h3 className="font-display text-2xl font-semibold text-foreground">
-                Get in touch
+                Reach out
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted">
-                Whether it&apos;s a paper, a project, or a potential role, I&apos;d
-                love to hear from you. Drop a message or grab my CV.
+                Whether it&apos;s about a paper, a project, or a role, feel free to
+                get in touch. Email me or grab my CV.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">

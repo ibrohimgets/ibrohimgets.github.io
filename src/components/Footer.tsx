@@ -25,8 +25,8 @@ export function Footer() {
               </span>
             </a>
             <p className="mt-4 text-sm leading-relaxed text-muted">
-              {site.title} — combining language reasoning with computer vision so
-              AI can see and reason about the world.
+              M.S. student in Artificial Intelligence at Dongguk University,
+              working on multimodal AI, visual grounding, and open-world detection.
             </p>
             <div className="mt-5 flex items-center gap-2">
               {socials.map((s) => {
@@ -116,11 +116,9 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-line pt-6 text-sm text-muted sm:flex-row">
           <p>
-            © {year} {site.name}. All rights reserved.
+            © {year} {site.name}
           </p>
-          <p>
-            Built with Next.js &amp; Tailwind CSS · Deployed on GitHub Pages
-          </p>
+          <p>Seoul, South Korea</p>
         </div>
       </div>
     </footer>
