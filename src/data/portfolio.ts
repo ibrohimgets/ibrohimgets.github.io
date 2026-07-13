@@ -659,6 +659,7 @@ export const navItems: Link[] = [
   { label: "Research", href: "#pipeline" },
   { label: "Publications", href: "#publications" },
   { label: "Projects", href: "#projects" },
+  { label: "Events", href: "#events" },
   { label: "Gallery", href: "#gallery" },
   { label: "News", href: "#news" },
   { label: "Contact", href: "#contact" },

@@ -1,58 +1,30 @@
-import { navItems, socials, contact, hero, site } from "@/data/portfolio";
+import { navItems, contact, hero, site } from "@/data/portfolio";
 import { asset } from "@/lib/utils";
-import { GitHub, LinkedIn, Mail } from "./icons";
-
-const iconFor: Record<string, typeof GitHub> = {
-  GitHub,
-  LinkedIn,
-  Email: Mail,
-};
 
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-line bg-surface">
-      <div className="container-page py-14">
-        <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
+    <footer className="mt-4 border-t border-line">
+      <div className="container-page py-12">
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           {/* Brand */}
           <div className="max-w-sm">
-            <a href="#top" className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent font-display text-sm font-bold text-accent-contrast">
-                IM
-              </span>
-              <span className="font-display text-base font-semibold text-foreground">
-                {site.name}
-              </span>
+            <a
+              href="#top"
+              className="font-display text-lg font-medium text-foreground transition-colors hover:text-accent"
+            >
+              {site.name}
             </a>
-            <p className="mt-4 text-sm leading-relaxed text-muted">
+            <p className="mt-3 text-sm leading-relaxed text-muted">
               M.S. student in Artificial Intelligence at Dongguk University,
               working on multimodal AI, visual grounding, and open-world detection.
             </p>
-            <div className="mt-5 flex items-center gap-2">
-              {socials.map((s) => {
-                const Icon = iconFor[s.label] ?? Mail;
-                return (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target={s.href.startsWith("http") ? "_blank" : undefined}
-                    rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    aria-label={s.label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-elevated text-muted transition-colors hover:border-accent hover:text-accent"
-                  >
-                    <Icon className="h-[18px] w-[18px]" />
-                  </a>
-                );
-              })}
-            </div>
           </div>
 
           {/* Navigate */}
           <nav aria-label="Footer">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
-              Navigate
-            </h3>
-            <ul className="mt-4 space-y-2.5">
+            <h3 className="eyebrow">Navigate</h3>
+            <ul className="mt-4 space-y-2">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <a
@@ -68,10 +40,8 @@ export function Footer() {
 
           {/* Elsewhere */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
-              Elsewhere
-            </h3>
-            <ul className="mt-4 space-y-2.5">
+            <h3 className="eyebrow">Elsewhere</h3>
+            <ul className="mt-4 space-y-2">
               <li>
                 <a
                   href={`mailto:${contact.email}`}
@@ -114,7 +84,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-line pt-6 text-sm text-muted sm:flex-row">
+        <div className="mt-12 flex flex-col items-start justify-between gap-2 border-t border-line pt-6 text-sm text-muted sm:flex-row sm:items-center">
           <p>
             © {year} {site.name}
           </p>

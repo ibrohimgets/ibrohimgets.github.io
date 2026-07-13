@@ -6,6 +6,7 @@ import { ResearchInterests } from "@/components/ResearchInterests";
 import { News } from "@/components/News";
 import { Publications } from "@/components/Publications";
 import { Projects } from "@/components/Projects";
+import { Events } from "@/components/Events";
 import { Gallery } from "@/components/Gallery";
 import { Timeline } from "@/components/Timeline";
 import { Experience } from "@/components/Experience";
@@ -35,6 +36,7 @@ export default function Home() {
         <News />
         <Publications />
         <Projects />
+        <Events />
         <Gallery />
         <Timeline />
         <Experience />
