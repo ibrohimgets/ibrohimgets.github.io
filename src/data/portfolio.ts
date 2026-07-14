@@ -262,8 +262,7 @@ export const projects: Project[] = [
     imageFit: "contain",
     metric: "86.0% Acc@0.5 · RefCOCOg-UMD test",
     links: {
-      github: "https://github.com/ibrohimgets/STD-grounding",
-      paperLabel: "ACCV 2026 · Under Review",
+      paperLabel: "ACCV 2026 · Under Review — code private during review",
     },
   },
   {

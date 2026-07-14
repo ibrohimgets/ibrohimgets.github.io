@@ -1,16 +1,16 @@
 # Ibrohimjon Muminov — Portfolio
 
-A modern, responsive personal portfolio for an **AI Researcher / Multimodal AI Engineer**.
-Built with **Next.js (App Router) + TypeScript + Tailwind CSS**, statically exported and
-deployed to **GitHub Pages** with a custom domain (`ibrohimjon.com`).
+An editorial, research-focused personal portfolio for an AI researcher / multimodal AI
+engineer. Built with **Next.js (App Router) + TypeScript + Tailwind CSS**, statically
+exported and deployed to **GitHub Pages** with a custom domain (`ibrohimjon.com`).
 
-- ⚡️ Fully static — no server, deploys anywhere
-- 🌗 Light & dark mode (system-aware, remembered)
-- 📱 Responsive across desktop, tablet, and mobile
-- ♿️ Accessible, semantic HTML with skip-link and focus states
-- 🔎 SEO metadata, Open Graph / Twitter cards, JSON-LD, sitemap & robots
-- 🎨 White / dark-gray / orange research-focused design system
-- 🧩 Reusable components, **all content in one editable data file**
+- Fully static — no server, deploys anywhere
+- Light & dark mode (system-aware, remembered)
+- Responsive across desktop, tablet, and mobile
+- Accessible, semantic HTML with skip-link and focus states
+- SEO metadata, Open Graph / Twitter cards, JSON-LD, sitemap & robots
+- Ink-on-paper editorial design system with a restrained orange accent
+- Reusable components, **all content in one editable data file**
 
 ---
 
@@ -21,7 +21,7 @@ deployed to **GitHub Pages** with a custom domain (`ibrohimjon.com`).
 | Framework   | Next.js 15 (App Router, static export) |
 | Language    | TypeScript                          |
 | Styling     | Tailwind CSS 3                      |
-| Fonts       | Inter + Space Grotesk (`next/font`, self-hosted) |
+| Fonts       | Inter + Newsreader (serif display type, `next/font`, self-hosted) |
 | Icons       | Inline SVG (no runtime dependency)  |
 | Animation   | IntersectionObserver reveal (no library) |
 | Hosting     | GitHub Pages + GitHub Actions       |
@@ -66,6 +66,8 @@ most likely to update (e.g. adding a repo or demo link to a project).
 | File                         | What it is                          |
 | ---------------------------- | ----------------------------------- |
 | `public/profile.jpeg`        | Hero portrait                       |
+| `public/events/*.jpg`        | Conference & community photos      |
+| `public/research/*`          | Figures pulled from the project repos, used in Projects and Gallery |
 | `public/MULTIMODAL_AI_ENGINEER_FlowCV_Resume_2026-07-14.pdf` | Downloadable CV (the "View CV" button) |
 | `public/og.png`              | Social share image (1200×630)       |
 | `src/app/icon.svg`           | Favicon (the "IM" monogram)         |
@@ -158,7 +160,7 @@ Remove `public/CNAME` in that case (custom domain not needed), and update
 
 ```
 portfolio/
-├─ public/                 # static assets (photo, CV, og.png, CNAME, .nojekyll)
+├─ public/                 # static assets (photo, CV, events/, research/, og.png, CNAME, .nojekyll)
 ├─ src/
 │  ├─ app/
 │  │  ├─ layout.tsx        # metadata, SEO, fonts, theme script, JSON-LD
@@ -167,7 +169,7 @@ portfolio/
 │  │  ├─ icon.svg          # favicon
 │  │  ├─ robots.ts         # → /robots.txt
 │  │  └─ sitemap.ts        # → /sitemap.xml
-│  ├─ components/          # Navbar, Hero, sections, cards, Button, Reveal…
+│  ├─ components/          # Navbar, Hero, section shell, Reveal, per-section components…
 │  │  └─ icons/            # inline SVG icon set
 │  ├─ data/
 │  │  └─ portfolio.ts      # ← single source of truth for all content
