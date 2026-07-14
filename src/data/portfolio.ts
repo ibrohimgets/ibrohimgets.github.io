@@ -133,7 +133,7 @@ export const hero = {
     "M.S. in Artificial Intelligence at Dongguk University. Research focused on Multimodal AI, Vision-Language Models, Visual Grounding, and Multimodal Reasoning.",
   photo: "/profile.png",
   // EDIT: point this at your CV file in /public
-  cv: "/Ibrohimjon_Muminov_CV.pdf",
+  cv: "/MULTIMODAL_AI_ENGINEER_FlowCV_Resume_2026-07-14.pdf",
   availability: "M.S. in AI · Dongguk University · Seoul",
 };
 

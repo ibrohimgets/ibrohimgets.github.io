@@ -66,12 +66,13 @@ most likely to update (e.g. adding a repo or demo link to a project).
 | File                         | What it is                          |
 | ---------------------------- | ----------------------------------- |
 | `public/profile.png`         | Hero portrait                       |
-| `public/Ibrohimjon_Muminov_CV.pdf` | Downloadable CV (the "View CV" button) |
+| `public/MULTIMODAL_AI_ENGINEER_FlowCV_Resume_2026-07-14.pdf` | Downloadable CV (the "View CV" button) |
 | `public/og.png`              | Social share image (1200×630)       |
 | `src/app/icon.svg`           | Favicon (the "IM" monogram)         |
 
 To replace the CV, drop a new PDF in `public/` and update `hero.cv` in
-`src/data/portfolio.ts`.
+`src/data/portfolio.ts`. Keep `public/Ibrohimjon_Muminov_CV.pdf` updated as a
+legacy fallback for old cached links.
 
 > **Regenerating the OG image:** `public/og.png` is a plain PNG so GitHub Pages
 > serves it with the correct MIME type. To change it, replace the file (keep it
