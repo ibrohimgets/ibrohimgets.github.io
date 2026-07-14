@@ -65,7 +65,7 @@ most likely to update (e.g. adding a repo or demo link to a project).
 
 | File                         | What it is                          |
 | ---------------------------- | ----------------------------------- |
-| `public/profile.jpg`         | Hero portrait                       |
+| `public/profile.png`         | Hero portrait                       |
 | `public/Ibrohimjon_Muminov_CV.pdf` | Downloadable CV (the "View CV" button) |
 | `public/og.png`              | Social share image (1200×630)       |
 | `src/app/icon.svg`           | Favicon (the "IM" monogram)         |
