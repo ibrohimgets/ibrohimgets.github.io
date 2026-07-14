@@ -131,7 +131,7 @@ export const hero = {
   headline: "Building AI Systems That See, Think, and Reason",
   subtitle:
     "M.S. in Artificial Intelligence at Dongguk University. Research focused on Multimodal AI, Vision-Language Models, Visual Grounding, and Multimodal Reasoning.",
-  photo: "/profile.png",
+  photo: "/profile.jpeg",
   // EDIT: point this at your CV file in /public
   cv: "/MULTIMODAL_AI_ENGINEER_FlowCV_Resume_2026-07-14.pdf",
   availability: "M.S. in AI · Dongguk University · Seoul",

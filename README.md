@@ -65,7 +65,7 @@ most likely to update (e.g. adding a repo or demo link to a project).
 
 | File                         | What it is                          |
 | ---------------------------- | ----------------------------------- |
-| `public/profile.png`         | Hero portrait                       |
+| `public/profile.jpeg`        | Hero portrait                       |
 | `public/MULTIMODAL_AI_ENGINEER_FlowCV_Resume_2026-07-14.pdf` | Downloadable CV (the "View CV" button) |
 | `public/og.png`              | Social share image (1200×630)       |
 | `src/app/icon.svg`           | Favicon (the "IM" monogram)         |

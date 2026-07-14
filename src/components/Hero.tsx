@@ -54,8 +54,8 @@ export function Hero() {
               <Image
                 src={asset(hero.photo)}
                 alt="Portrait of Ibrohimjon Muminov"
-                width={240}
-                height={294}
+                width={334}
+                height={442}
                 priority
                 className="h-auto w-full object-cover"
                 sizes="(max-width: 1024px) 19rem, 19rem"
