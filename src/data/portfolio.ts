@@ -102,8 +102,12 @@ export type SkillGroup = {
 export const site = {
   name: "Ibrohimjon Muminov",
   title: "Multimodal AI Engineer",
-  url: "https://ibrohimjon.com",
-  domain: "ibrohimjon.com",
+  // NOTE: ibrohimjon.com is the intended long-term domain (CNAME is already
+  // configured for it — see README), but its DNS isn't live yet. Point SEO
+  // metadata at the working GitHub Pages URL until the custom domain
+  // resolves, then switch these two back.
+  url: "https://ibrohimgets.github.io",
+  domain: "ibrohimgets.github.io",
   description:
     "Ibrohimjon Muminov is a Multimodal AI Engineer and M.S. candidate in Artificial Intelligence at Dongguk University, researching how language reasoning and computer vision combine so AI can not only see but reason about what it sees.",
   keywords: [
@@ -641,7 +645,7 @@ export const contact = {
   location: "Yongsan-gu, Seoul, South Korea",
   github: "https://github.com/ibrohimgets",
   linkedin: "https://www.linkedin.com/in/ibrohim-muminov-775650259",
-  website: "https://ibrohimjon.com",
+  website: "https://ibrohimgets.github.io",
 };
 
 export const socials: Link[] = [
